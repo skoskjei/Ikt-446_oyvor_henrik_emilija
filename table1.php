@@ -4,7 +4,10 @@ include_once 'neo4jOlap.php';
 header('Content-Type: application/json');
 
 $query = new Neo4jOlap();
-$data =  $query->getDataForTableOne($_GET['yeartb1'], $_GET['statetb1'] );
+$year = isset($_GET['yeartb1']) ? $_GET['yeartb1'] : '';
+$state = isset($_GET['statetb1']) ? $_GET['statetb1'] : '';
+
+$data =  $query->getDataForTableOne($year, $state);
 
 $container = array();
 $container["labels"] = $data[0];

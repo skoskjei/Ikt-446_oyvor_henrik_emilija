@@ -51,7 +51,7 @@ class Neo4jOlap
 
 
     # 1.1 Number of cases of different diseases all years summed (before choosing year and state)
-    public function getDataForTableOne($year, $state){
+    public function getDataForTableOne($year='', $state=''){
         $query = '';
 
         if(empty($year) and empty($state)){
@@ -60,14 +60,13 @@ class Neo4jOlap
                 RETURN SUM(e.cases) as no_cases, e.disease as disease";
         }
         elseif(empty($year)){
-            $query = "MATCH (d:Date)--(e:Event)
-                WHERE e.loc_type = 'STATE' AND d.year = '$year'
-                RETURN SUM(e.cases) as no_cases, e.disease as disease";
-
-        }
-        elseif(empty($state)){
             $query = "MATCH (d:Date)--(e:Event)--(s:State)
                 WHERE e.loc_type = 'STATE' AND s.sname = '$state'
+                RETURN SUM(e.cases) as no_cases, e.disease as disease";
+        }
+        elseif(empty($state)){
+            $query = "MATCH (d:Date)--(e:Event)
+                WHERE e.loc_type = 'STATE' AND d.year = '$year'
                 RETURN SUM(e.cases) as no_cases, e.disease as disease";
         }
         else{
@@ -119,23 +118,23 @@ class Neo4jOlap
         if(empty($year) and empty($state)){
             $query ="MATCH (d:Date)--(e:Event)
                     WHERE e.loc_type = 'STATE' AND e.disease = '$disease'
-                    RETURN d.week as week, AVG(e.incidence_per_100000) as incidence_per_100000";
+                    RETURN d.week as week, AVG(e.incidence_per_100000) as incidence_per_100000 ORDER BY d.week";
         }
         elseif(empty($year)){
             $query ="MATCH (d:Date)--(e:Event)--(s:State)
                 WHERE e.loc_type = 'STATE' AND e.disease = '$disease' AND s.sname = '$state'
-                RETURN d.week as week, AVG(e.incidence_per_100000) as incidence_per_100000";
+                RETURN d.week as week, AVG(e.incidence_per_100000) as incidence_per_100000 ORDER BY d.week";
         }
         elseif(empty($state)){
             $query = "MATCH (d:Date)--(e:Event)
                 WHERE e.loc_type = 'STATE' AND e.disease = '$disease' AND d.year = '$year'
-                RETURN d.week as week, AVG(e.incidence_per_100000) as incidence_per_100000";
+                RETURN d.week as week, AVG(e.incidence_per_100000) as incidence_per_100000 ORDER BY d.week";
         }
         else{
 
             $query = "MATCH (d:Date)--(e:Event)--(s:State)
                 WHERE e.loc_type = 'STATE' AND e.disease = '$disease' AND d.year = '$year' AND s.sname = '$state'
-                RETURN d.week as week, e.incidence_per_100000 as incidence_per_100000";
+                RETURN d.week as week, e.incidence_per_100000 as incidence_per_100000 ORDER BY d.week";
 
         }
         $result = $this->db->query($query);
