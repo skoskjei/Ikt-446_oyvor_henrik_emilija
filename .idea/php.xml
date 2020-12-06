@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/Neo4j/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/graphaware/neo4j-response-formatter" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/neoxygen/neoclient" />
+      <path value="$PROJECT_DIR$/Neo4j/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
+</project>
