@@ -14,11 +14,16 @@ class Neo4jOlap
         $this->db = new Neo4jDb();
     }
     public function getYearDropDown_state(){
+        $dropdown_list = [];
         $query = "MATCH (s:State)--(e:Event)--(d:Date)
                 WHERE e.loc_type = 'STATE' 
                 RETURN DISTINCT d.year as year
                 ORDER BY d.year";
-        return $this->db->query($query)->get('year');
+        $res = $this->db->query($query)->get('year');
+        foreach($res as $r){
+            array_push($dropdown_list, $r);
+        }
+        return $dropdown_list;
     }
     public function getDiseaseDropDown_state(){
         $query = "MATCH (e:Event)
@@ -27,26 +32,34 @@ class Neo4jOlap
         ORDER BY e.disease";
         $res = $this->db->query($query)->get('disease');
 
-
-        if (empty($res)) {
-            return array();
-        }
         return $res;
     }
     public function getStateDropDown_state(){
+
+        $dropdown_list = [];
         $query = "MATCH (s:State)--(e:Event)
                 WHERE e.loc_type = 'STATE'
                 RETURN DISTINCT s.sname as state
                 ORDER BY s.sname";
-        return $this->db->query($query)->get('state');
+        $res = $this->db->query($query)->get('state');
+        foreach($res as $r){
+            array_push($dropdown_list, $r);
+        }
+        return $dropdown_list;
     }
 
     public function getYearDropDown_city(){
+
+        $dropdown_list = [];
         $query = "MATCH (s:State)--(c:City)--(e:Event)--(d:Date)
                 WHERE e.loc_type = 'CITY'
                 RETURN DISTINCT d.year as year
                 ORDER BY d.year";
-        return $this->db->query($query)->get('year');
+        $res = $this->db->query($query)->get('year');
+        foreach($res as $r){
+            array_push($dropdown_list, $r);
+        }
+        return $dropdown_list;
     }
 
 
@@ -57,22 +70,26 @@ class Neo4jOlap
         if(empty($year) and empty($state)){
             $query = "MATCH (d:Date)--(e:Event)
                 WHERE e.loc_type = 'STATE'
-                RETURN SUM(e.cases) as no_cases, e.disease as disease";
+                RETURN SUM(e.cases) as no_cases, e.disease as disease
+                ORDER BY e.disease";
         }
         elseif(empty($year)){
             $query = "MATCH (d:Date)--(e:Event)--(s:State)
                 WHERE e.loc_type = 'STATE' AND s.sname = '$state'
-                RETURN SUM(e.cases) as no_cases, e.disease as disease";
+                RETURN SUM(e.cases) as no_cases, e.disease as disease
+                ORDER BY e.disease";
         }
         elseif(empty($state)){
             $query = "MATCH (d:Date)--(e:Event)
                 WHERE e.loc_type = 'STATE' AND d.year = '$year'
-                RETURN SUM(e.cases) as no_cases, e.disease as disease";
+                RETURN SUM(e.cases) as no_cases, e.disease as disease
+                ORDER BY e.disease";
         }
         else{
             $query ="MATCH (d:Date)--(e:Event)--(s:State)
                 WHERE e.loc_type = 'STATE' AND s.sname = '$state' AND d.year = '$year'
-                RETURN SUM(e.cases) as no_cases, e.disease as disease";
+                RETURN SUM(e.cases) as no_cases, e.disease as disease
+                ORDER BY e.disease";
 
         }
         $result = $this->db->query($query);
