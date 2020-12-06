@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/symfony/yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/symfony/polyfill-php72" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/symfony/polyfill-php70" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/symfony/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/symfony/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/symfony/dependency-injection" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/symfony/config" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/graphaware/neo4j-response-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/neoxygen/neoclient" />
+      <excludeFolder url="file://$MODULE_DIR$/Neo4j/vendor/composer" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jquery-3.5.1.slim" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+  </component>
+</module>
